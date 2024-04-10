@@ -5,8 +5,8 @@ body {
     margin: 20px;
 }
 main {
-    background-color: rgb(74, 99, 207);
-    color: rgb(175, 230, 170);
+    background-color: rgb(241, 196, 255);
+    color: rgb(27, 50, 255);
     font-family: Arial, Helvetica, sans-serif;
     margin: 10px 20px 45px;
 }
@@ -21,7 +21,7 @@ footer {
     left: 0;
 }
 a {
-    color: rgb(41, 160, 41);
+    color: rgb(29, 216, 29);
     text-decoration: none;
     transition: 1s 2s;
 }
