@@ -6,7 +6,7 @@ body {
 }
 main {
     background-color: rgb(241, 196, 255);
-    color: rgb(27, 50, 255);
+    color: rgb(5, 5, 8);
     font-family: Arial, Helvetica, sans-serif;
     margin: 10px 20px 45px;
 }
@@ -47,5 +47,5 @@ div.menu {
 }
 div.menu:hover {
     background-color: rgb(140, 230, 230);
-    box-shadow: 0 0 15px rgb(13, 13, 141);
+    box-shadow: 0 0 15px rgb(54, 54, 167);
 }

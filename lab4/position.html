@@ -18,14 +18,21 @@
                 border: 1px dotted darkgreen;
                 margin: 15px;
             }
+            .static {
+                background-color: rgb(136, 124, 124);
+            }
             .position-relative {
                 position: relative;
                 left: 70px;
                 top: -130px; 
+                background-color: rgb(117, 164, 164);
             }
             .position-absolute {
                 position: absolute;
                 left: 300px;
+                background-color: rgb(158, 158, 193);
+                z-index: 1;
+                transition: all 0.3s;
             }
         </style>
     </head>
@@ -36,10 +43,10 @@
             <hr>
         </header>
         <main>
-          <div>static</div>
-          <div>static</div>
+          <div class="static">static</div>
+          <div class="static">static</div>
+          <div class="hovered">hovered</div>
           <div class="position-relative">relative</div>
-          <div>static</div>
           <div>static</div>
           <div class="position-absolute">absolute</div>
           <div>static</div>

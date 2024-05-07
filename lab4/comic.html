@@ -9,25 +9,45 @@
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
         <style>
-            div {
-                width: 300px;
-                height: 70px;
-                line-height: 70px;
-                text-align: center;
-                background-color: white;
-                border: 1px dotted darkgreen;
-                margin: 15px;
-            }
-            .position-relative {
-                position: relative;
-                left: -200px;
-                top: -700px; 
-            }
-            .position-absolute {
-                position: relative;
-                left: -100px;
-                top: -800;
-            }
+            .comic-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .speech-bubble {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            background-color: rgb(182, 241, 181);
+            border: 1px solid #1f5100;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(198, 60, 60, 0.3);
+            transition: all 0.3s;
+        }
+
+        .comic-container:hover .speech-bubble {
+            display: block;
+        }
+
+        .bubble-1 {
+            top: 10px;
+            left: 10px;
+        }
+
+        .bubble-2 {
+            top: 50px;
+            left: 100px;
+        }
+
+        .bubble-3 {
+            top: 90px;
+            left: 212px;
+        }
+
+        .quote {
+            top: 140px;
+            left: 410px;
+        }
         </style>
     </head>
 
@@ -39,19 +59,15 @@
         </header>
         <main>
             <p>
-                <img src="e6246d0c-aa6.png" alt="" wight="300"> 
-                <div>static</div>
-             <div>static</div>
-             <div class="position-relative">relative</div>
-             <div>static</div>
-             <div>static</div>
-             <div class="position-absolute">absolute</div>
+                <div class="comic-container">
+                    <img src="e6246d0c-aa6.png" alt="Hero Image" width="600">
+                
+                    <div class="speech-bubble bubble-1">Привет!</div>
+                    <div class="speech-bubble bubble-2">Как ты??</div>
+                    <div class="speech-bubble bubble-3">Пойдем рисовать комикс!</div>
+                    <div class="speech-bubble quote">Я научу!</div>
+                </div> 
              </p>
-             
-     
-         
-         
-
         </main>
 
         <footer>
