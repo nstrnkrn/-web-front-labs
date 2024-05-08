@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нестеренко Ирина Павловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function Summa(){
+            let apple = document.getElementById('apple');
+            let pear = document.getElementById('pear');
+            let orange = document.getElementById('orange');
+            let melon = document.getElementById('melon');
+
+            let a = parseInt(apple.value);
+            let b = parseInt(pear.value);
+            let c = parseInt(orange.value);
+            let d = parseInt(melon.value);
+            let summa = a*100 + b*80 + c*150 + d*300;
+            let output = document.getElementById('output');
+            output.innerHTML = 'Общая цена: ' + summa + 'р';
+        }
+    </script>
+    <style>
+        .cart{
+            margin: 5 auto;
+            border: 1px solid brown;
+            width: 300px;
+            height: 400px;
+        }
+        h3{
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <header>НГТУ, ФБ, Лабораторная работа 5</header>
+
+    <main>
+        <div class="cart">
+            <h3>Корзина товаров</h3>
+            <p>Яблоки (100р/шт):</p>
+            <input type="number" id="apple">
+            <p>Груши (80р/шт):</p>
+            <input type="number" id="pear">
+            <p>Апельсины (150р/шт):</p>
+            <input type="number" id="orange">
+            <p>Дыни (300р/шт):</p>
+            <input type="number" id="melon"><br><br>
+            <input type="button" value="Рассчитать" onclick="Summa()">
+            <div id="output"></div>
+        </div>
+
+    </main>
+
+    <footer ondblclick="Hello()">
+        &copy; Никита Кем, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
