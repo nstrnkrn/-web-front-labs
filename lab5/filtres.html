@@ -8,28 +8,35 @@
         <link rel="apple-touch-icon"  href="../favicon.ico">
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-        <style>
+       <script>
+            function blurChange() {
+                let value = document.getElementById('blurValue').value + 'px';
+                document.getElementById('blurOutput').innerText = value;
+                document.getElementById('blurImage').style.filter = 'blur('+value+')';
+
+            }
+       </script> 
+       <style>
          
         </style>
     </head>
 
     <body>
         
-        <header>
+        <header >
             НГТУ, ФБ, Лабораторная работа 5
             <hr>
         </header>
         <main>
-            <ul>
-                <li><a href="arithmetic.html">Арифметика</a></li>
-                <li><a href="cart.html">Корзина</a></li>
-                <li><a href="circles.html">Круги</a></li>
-                <li><a href="filtres.html">Фильтры</a></li>
-        
-            </ul>
+            <div>
+                Фильтр blur:
+                <input type="range" min="0" max="20" value="0" onchange="blurChange()" id="blurValue">
+                <span id="blurOutput"></span>
+            </div>
+            <div><img src="Sea.PNG" id="blurImage" ></div>
         </main>
 
-        <footer>
+        <footer >
             <hr>
             &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
         </footer>
