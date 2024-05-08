@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Нестеренко Ирина Павловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="apple-touch-icon"  href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            transition: opacity 1s, transform 1s;
+        }
+    </style>
+</head>
+<body>
+    <button id="showCircles">Показать круги</button>
+    <script>
+        const circles = [];
+        const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'brown', 'gray', 'teal'];
+
+        function createCircle(index) {
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+            circle.style.backgroundColor = colors[index];
+            circle.textContent = index + 1;
+            circle.style.left = `${Math.random() * (window.innerWidth - 100)}px`;
+            circle.style.top = `${Math.random() * (window.innerHeight - 100)}px`;
+            circle.addEventListener('click', () => hideCircle(circle));
+            document.body.appendChild(circle);
+            circles.push(circle);
+        }
+
+        function hideCircle(circle) {
+            circle.style.opacity = '0';
+            circle.style.transform = 'scale(0)';
+        }
+
+        function showCircles() {
+            circles.forEach(circle => {
+                circle.style.opacity = '1';
+                circle.style.transform = 'scale(1)';
+            });
+        }
+
+        const showCirclesButton = document.getElementById('showCircles');
+        showCirclesButton.addEventListener('click', showCircles);
+
+        for (let i = 0; i < 10; i++) {
+            createCircle(i);
+        }
+    </script>
+</body>
+</html>
