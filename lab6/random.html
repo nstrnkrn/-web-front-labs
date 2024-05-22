@@ -49,23 +49,23 @@
             }
             function again(params) {
                 let screens = document.getElementsByClassName('game');
-        screens[2].style.display = 'none';
-        screens[1].style.display = 'block';
-        number = Math.floor(Math.random() * 100) + 1;
-        count = 0
-        document.getElementById('result').innerHTML = ''
-        document.getElementById('user-number').value = ''
-        }
-        function CheckRules() {
-        let screensRules = document.getElementsByClassName('rules');
-        screensRules[0].style.display = 'none';
-        screensRules[1].style.display = 'block';
+                screens[2].style.display = 'none';
+                screens[1].style.display = 'block';
+                number = Math.floor(Math.random() * 100) + 1;
+                count = 0
+                document.getElementById('result').innerHTML = ''
+                document.getElementById('user-number').value = ''
+            }
+            function CheckRules() {
+                let screensRules = document.getElementsByClassName('rules');
+                screensRules[0].style.display = 'none';
+                screensRules[1].style.display = 'block';
             }
             function HideRules() {
-        let screensRules = document.getElementsByClassName('rules');
-        screensRules[1].style.display = 'none';
-        screensRules[0].style.display = 'block';
-    }
+                let screensRules = document.getElementsByClassName('rules');
+                screensRules[1].style.display = 'none';
+                screensRules[0].style.display = 'block';
+            }
             </script>
     </head>
 
@@ -104,7 +104,7 @@
             </div>
             <div class="rules">
                 <button id="openRules" onclick="CheckRules()">Правила игры</button>
-              </div>
+            </div>
             <div class="rules" style="display: none;">
                 <button onclick="HideRules()">Скрыть правила</button>
                 <ol type="A">

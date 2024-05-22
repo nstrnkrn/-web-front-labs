@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+        <script>
+                function calculateTotal() {
+            let balance = parseFloat(document.getElementById('balance').value) || 0;
+            let bread = parseInt(document.getElementById('Bread').value) || 0;
+            let eggs = parseInt(document.getElementById('Eggs').value) || 0;
+            let milk = parseInt(document.getElementById('Milk').value) || 0;
+            let grechka = parseInt(document.getElementById('Grechka').value) || 0;
+            let flour = parseInt(document.getElementById('Flour').value) || 0;
+            let apples = parseInt(document.getElementById('Apples').value) || 0;
+            let qiwi = parseInt(document.getElementById('Qiwi').value) || 0;
+
+            if (bread < 0 || eggs < 0 || milk < 0 || grechka < 0|| flour < 0 || apples < 0 || qiwi < 0) {
+                alert('Количество товара не может быть отрицательным!');
+                return;
+            }
+
+            let total = (bread * 40 + eggs * 150 + milk * 80 + grechka * 80 + flour * 120 + apples * 210 + qiwi * 70);
+            if (total === 0) {
+                alert('Выберите хотя бы один товар!');
+                return;
+            }
+
+            let remainingBalance = balance - total;
+            if (remainingBalance < 0) {
+                alert('Недостаточно средств на балансе!');
+                return;
+            }
+
+            document.getElementById('result').innerHTML = 'Общая сумма: ' + total + ' руб.<br>Остаток на балансе: ' + remainingBalance + ' руб.';
+        }
+
+        function resetValues() {
+            document.getElementById('balance').value = '';
+            document.getElementById('Bread').value = '';
+            document.getElementById('Eggs').value = '';
+            document.getElementById('Milk').value = '';
+            document.getElementById('Grechka').value = '';
+            document.getElementById('Flour').value = '';
+            document.getElementById('Apples').innerHTML = '';
+            document.getElementById('Qiwi').innerHTML = '';
+            document.getElementById('result').innerHTML = '';
+        }
+        </script>
+        <style>
+                output {
+                    border: 2px solid;
+                    border-radius: 10px;
+                    width: 450px;
+                    height: auto;
+                    padding: 10px;
+                    background-color: #6c3b9c;
+                }
+                .h1 {
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+                .product-table {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    border-collapse: collapse;
+                }
+                .product-table th, .product-table td {
+                    border: 1px solid #000;
+                    padding: 8px;
+                    text-align: center;
+                }
+                .buttons-container {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                }
+                .button {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    background-color: #af4cad;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                }
+                .button:hover {
+                    background-color: #af4cad;
+                }
+        </style>
+        
+    </head>
+
+    <body>
+        
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+        <main>
+            <div id="output">
+                <div class="h1">
+                    Корзина товаров
+                </div>
+                <input type="number" id="balance" placeholder="Введите баланс" style="width: 100%; margin-bottom: 10px;">
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Название</th>
+                            <th>Цена</th>
+                            <th>Количество</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Хлеб</td>
+                            <td>40руб/шт</td>
+                            <td><input type="number" min="0" id="Bread" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Яйца</td>
+                            <td>150руб/10шт</td>
+                            <td><input type="number" min="0" id="Eggs" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Молоко</td>
+                            <td>80руб/шт</td>
+                            <td><input type="number" min="0" id="Milk" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Гречка</td>
+                            <td>80руб/кг</td>
+                            <td><input type="number" min="0" id="Grechka" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Мука</td>
+                            <td>120руб/кг</td>
+                            <td><input type="number" min="0" id="Flour" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Яблоки</td>
+                            <td>210руб/кг</td>
+                            <td><input type="number" min="0" id="Apples" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Киви</td>
+                            <td>70руб/шт</td>
+                            <td><input type="number" min="0" id="Qiwi" placeholder="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="buttons-container">
+                    <button class="button" onclick="calculateTotal()">ОК</button>
+                    <button class="button" onclick="resetValues()">Очистить значения</button>
+                </div>
+                <div id="result" style="text-align: center; margin-top: 10px;"></div>
+            </div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
