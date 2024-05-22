@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+        <style>
+            div {
+                width: 400px;
+                height: 100px;
+                line-height: 20px;
+                font-size: 20px;
+                text-align: center;
+                background-color: lightblue;
+                border: 1px solid darkgreen;
+                margin: 15px;
+                padding-top: 60px;
+                position: static;
+                cursor: pointer;
+                transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            }
+        </style>
+        <script>
+            function ChangeColor(div) {
+                if(div.style.background == 'lightblue') {
+                    div.style.background = 'red'
+                    div.style.color = 'black'
+                    document.getElementById('color-name').innerHTML = 'красный'
+                }
+                else if(div.style.background == 'red') {
+                    div.style.background = 'gold'
+                    div.style.color = 'black'
+                    document.getElementById('color-name').innerHTML = 'золотой'
+                }
+                else if(div.style.background == 'gold') {
+                    div.style.background = 'coral'
+                    div.style.color = 'black'
+                    document.getElementById('color-name').innerHTML = 'коралловый'
+                }
+                else if(div.style.background == 'coral') {
+                    div.style.background = 'black'
+                    div.style.color = 'white'
+                    document.getElementById('color-name').innerHTML = 'черный'
+                }
+                else {
+                    div.style.background = 'lightblue'
+                    div.style.color = 'black'
+                    document.getElementById('color-name').innerHTML = 'светло-голубой'
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header>
+        <main>
+           <div class="color" ondblclick="ChangeColor(this)">
+                Цвет: <span id="color-name">светло-голубой</span><br>
+                Сделайте двойной щелчок, чтобы сменить.
+           </div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
