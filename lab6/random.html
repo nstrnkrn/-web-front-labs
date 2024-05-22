@@ -30,7 +30,7 @@
             }
             function guess() {
                 count++
-                let input = document.getElementsById('user-number');
+                let input = document.getElementById('user-number');
                 let userNumber = parseInt(input.value);
                 let message = document.getElementById('result');
                 if(userNumber > number) {
@@ -48,15 +48,31 @@
                 }
             }
             function again(params) {
-
+                let screens = document.getElementsByClassName('game');
+        screens[2].style.display = 'none';
+        screens[1].style.display = 'block';
+        number = Math.floor(Math.random() * 100) + 1;
+        count = 0
+        document.getElementById('result').innerHTML = ''
+        document.getElementById('user-number').value = ''
+        }
+        function CheckRules() {
+        let screensRules = document.getElementsByClassName('rules');
+        screensRules[0].style.display = 'none';
+        screensRules[1].style.display = 'block';
             }
+            function HideRules() {
+        let screensRules = document.getElementsByClassName('rules');
+        screensRules[1].style.display = 'none';
+        screensRules[0].style.display = 'block';
+    }
             </script>
     </head>
 
     <body>
         
         <header>
-            НГТУ, ФБ, Лабораторная работа 6`
+            НГТУ, ФБ, Лабораторная работа 6
         </header>
         <main>
             <div class="game">
@@ -86,6 +102,18 @@
             <div>
                 <button onclick="again()">Сыграть еще раз</button>
             </div>
+            <div class="rules">
+                <button id="openRules" onclick="CheckRules()">Правила игры</button>
+              </div>
+            <div class="rules" style="display: none;">
+                <button onclick="HideRules()">Скрыть правила</button>
+                <ol type="A">
+                  <li>Нажмите кнопку "Сыграть в игру"</li>
+                  <li>Введите в поле для ввода число</li>
+                  <li>Если число отгадано верно, вы увидите сообщение "Поздравляем! Вы выиграли"</li>
+                  <li>Если число отгадано неверно, то продолжайте отгадывать</li>
+                  <li>После победы можете запустить игру заново нажав "Сыграть ещё раз"</li>
+                </ol>
         </div>
         </main>
 
