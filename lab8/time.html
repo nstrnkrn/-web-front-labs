@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <script src="time.js"></script>
+    <style>
+        #output {
+            border: 2px solid;
+            border-radius: 10px;
+            width: 600px;
+            height: 240px;
+            background-color: #f622dd;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .button {
+            padding: 3px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #6e0156;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .textTime {
+            padding-top: 25px;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        #seconds {
+            position: absolute;
+            top: 40vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            color: black;
+            text-align: center;
+        }
+
+        #clock {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #fb1bf7;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        #second-hand, #minute-hand, #hour-hand {
+            background-color: #ee19fd;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(0deg);
+        }
+        #second-hand {
+            height: 90px;
+            width: 2px;
+            background-color: rgb(244, 66, 194);
+            border-radius: 10px;
+            transform-origin: bottom center;
+        }
+        #minute-hand {
+            height: 80px;
+            width: 3px;
+            border-radius: 10px;
+            transform-origin: bottom center;
+        }
+        #hour-hand {
+            height: 60px;
+            width: 5px;
+            border-radius: 10px;
+            transform-origin: bottom center;
+        }
+        
+        .tick {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background-color: #fa31d5;
+            top: 90px;
+            left: 50%;
+            transform-origin: bottom center;
+        }
+        .number {
+            position: absolute;
+            font-size: 16px;
+            color: black;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            top: 90px;
+            left: 50%;
+            transform-origin: center center;
+        }
+    </style>
+</head>
+<body onload="showTime()">
+    <header>
+        НГТУ, ФБ, Лабораторная 8
+    </header>
+
+    <main>
+        <div id="output">
+            <div id="time" class="textTime">00:00:00</div>
+        </div>
+        <div id="seconds">00</div>
+        <div id="clock">
+            <div id="second-hand"></div>
+            <div id="minute-hand"></div>
+            <div id="hour-hand"></div>
+            <!-- Тики -->
+            <div class="tick" style="transform: translateX(-50%) rotate(0deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(30deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(60deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(90deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(120deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(150deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(180deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(210deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(240deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(270deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(300deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(330deg) translateY(-90px);"></div>
+            <!-- Числа -->
+            <div class="number" style="transform: translateX(-50%) rotate(0deg) translateY(-80px);">12</div>
+            <div class="number" style="transform: translateX(-50%) rotate(30deg) translateY(-80px);">1</div>
+            <div class="number" style="transform: translateX(-50%) rotate(60deg) translateY(-80px);">2</div>
+            <div class="number" style="transform: translateX(-50%) rotate(90deg) translateY(-80px);">3</div>
+            <div class="number" style="transform: translateX(-50%) rotate(120deg) translateY(-80px);">4</div>
+            <div class="number" style="transform: translateX(-50%) rotate(150deg) translateY(-80px);">5</div>
+            <div class="number" style="transform: translateX(-50%) rotate(180deg) translateY(-80px);">6</div>
+            <div class="number" style="transform: translateX(-50%) rotate(210deg) translateY(-80px);">7</div>
+            <div class="number" style="transform: translateX(-50%) rotate(240deg) translateY(-80px);">8</div>
+            <div class="number" style="transform: translateX(-50%) rotate(270deg) translateY(-80px);">9</div>
+            <div class="number" style="transform: translateX(-50%) rotate(300deg) translateY(-80px);">10</div>
+            <div class="number" style="transform: translateX(-50%) rotate(330deg) translateY(-80px);">11</div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <script src="lab8.js"></script>
+    <style>
+        #output {
+            border: 2px solid;
+            border-radius: 10px;
+            width: 600px;
+            height: 240px;
+            background-color: #f622dd;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        #output2 {
+            border: 2px solid;
+            border-radius: 10px;
+            width: 500px;
+            height: 50px;
+            background-color: #f622dd;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .button {
+            padding: 3px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #6e0156;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body onload="showDate(), showDateTime()">
+    <header>
+        НГТУ, ФБ, Лабораторная 8
+    </header>
+
+    <main>
+        <div id="output">
+            <div id="current-date">
+                Дата и время для Русской локали:
+                <span id="current-date-ru" style="font-weight: bold;"></span><br>
+                Дата и время для Американской локали (en-US):
+                <span id="current-date-us" style="font-weight: bold;"></span><br>
+                Дата и время для Немецкой локали (de-DE):
+                <span id="current-date-de" style="font-weight: bold;"></span><br>
+                Дата и время для Китайской локали (zh-CN):
+                <span id="current-date-cn" style="font-weight: bold;"></span><br>
+                Дата и время для Японской локали (ja-JP):
+                <span id="current-date-jp" style="font-weight: bold;"></span><br>
+                Дата и время для Испанской локали (es-ES):
+                <span id="current-date-es" style="font-weight: bold;"></span><br>
+            </div>
+        </div><br>
+        <div id="output" style="width: 400px;">
+            <div id="current-date" style="padding-top: 10px;">
+                Текущая дата и время:
+                <span id="current-date-time" style="font-weight: bold;"></span><br>
+                Текущий год: <span id="current-year" style="font-weight: bold;"></span><br>
+                Текущий месяц: <span id="current-month" style="font-weight: bold;"></span><br>
+                Текущая дата: <span id="current-day" style="font-weight: bold;"></span><br>
+                День недели: <span id="current-day-of-week" style="font-weight: bold;"></span><br>
+            </div>
+        </div><br>
+        <div id="output2">
+            <div id="input-section">
+                <label for="input-date">Дата:</label>
+                <input type="number" id="input-date" min="1" max="31" placeholder="День">
+            
+                <label for="input-month">Месяц:</label>
+                <input type="number" id="input-month" min="1" max="12" placeholder="Месяц">
+            
+                <label for="input-year">Год:</label>
+                <input type="number" id="input-year" min="1900" max="2100" placeholder="Год">
+            
+                <button class="button" onclick="getDayOfWeek()">День недели</button>
+                
+            </div>
+            
+            <div id="output-day-of-week" style="font-weight: bold;"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
