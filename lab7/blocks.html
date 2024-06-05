@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <style>
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #d639bf;
+            color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #d117b9;
+        }
+    </style>
+    <script>
+    function addNewBlock() {
+        let newBlock = document.createElement('div')
+        newBlock.style.backgroundColor = 'purple'
+        newBlock.style.height = '40px'
+        newBlock.style.border = '2px solid black'
+        newBlock.style.marginTop = '10px'
+        newBlock.style.borderRadius = '10px'
+
+        document.querySelector('main').appendChild(newBlock)
+    }
+    function addNewBlocks() {
+        let main = document.querySelector('main');
+        let startingWidth = 200;
+        let widthIncrement = 40; 
+        let numberOfBlocks = parseInt(document.getElementById('blocksNumber').value);
+        let buttons = Array.from(main.querySelectorAll('button')); 
+        let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+        blocks.forEach(block => block.remove()); 
+
+        for (let i = 0; i < numberOfBlocks; i++) {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'purple';
+            newBlock.style.height = '40px';
+            newBlock.style.border = '2px solid black';
+            newBlock.style.marginTop = '10px';
+            newBlock.style.borderRadius = '10px';
+            newBlock.innerHTML = `Блок № ${i + 1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+            newBlock.style.textAlign = 'center';
+            newBlock.style.paddingTop = '19px';
+
+            let currentWidth = startingWidth + (widthIncrement * i);
+
+            newBlock.style.width = `${currentWidth}px`;
+
+            main.appendChild(newBlock);
+        }
+    }
+
+    function add20_50() {
+            let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)'));
+
+            blocks.forEach(block => block.remove()); 
+            for(let i = 20; i<=50; i+=2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#922d83';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '10px';
+                newBlock.innerHTML = `Блок со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                main.appendChild(newBlock);
+            }
+        }
+            function add10_80() {
+            let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+            for (let i = 10; i >= -80; i -= 3) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#922d83';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Круг со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.width = '180px';
+                newBlock.style.height = '90px';
+                newBlock.style.display = 'inline-block'; 
+
+                main.appendChild(newBlock);
+                }
+            }
+
+            function opacityBlocks() {
+            let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+            let startingOpacity = 0;
+            let opacityIncrement = 10; 
+            for (let i = 1; i <= 10 ; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#77c081';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '7px';
+                newBlock.style.borderRadius = '20px';
+                newBlock.innerHTML = `Полупрозрачный блок со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '11px';
+                newBlock.style.width = '180px';
+
+                let currentOpacity = startingOpacity + opacityIncrement * i;
+
+                newBlock.style.opacity = `${currentOpacity}%`;
+
+                main.appendChild(newBlock);
+            }
+        }
+        function colorBlocks() {
+            let main = document.querySelector('main');
+            let numberOfBlocks = parseInt(document.getElementById('blocksNumberColor').value);
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+
+            for (let i = 0; i < numberOfBlocks; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.height = '40px';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Блок № ${numberOfBlocks - i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.marginLeft = '10px'
+                newBlock.style.display = 'inline-block'; 
+                newBlock.style.width = '100px'
+                if (i % 2 == 0) {
+                    newBlock.style.backgroundColor = 'black';
+                    newBlock.style.color = 'white';
+                    newBlock.style.border = '2px solid white';
+                } else {
+                    newBlock.style.backgroundColor = 'white';
+                    newBlock.style.color = 'black';
+                    newBlock.style.border = '2px solid black';
+
+                }
+                main.appendChild(newBlock);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+
+    <main>
+        <button class="button" onclick="addNewBlock()">Добавить блок</button>
+        <button class="button" onclick="addNewBlocks()">Добавить блоки</button>
+        <button class="button" onclick="add20_50()">20 => 50</button>
+        <button class="button" onclick="add10_80()">10 => -80</button>
+        <button class="button" onclick="colorBlocks()">Черный/белый</button><br><br>
+        <button class="button" onclick="opacityBlocks()">Полупрозрачные блоки</button>
+        <input type="number" id="blocksNumber" placeholder="Введите кол-во блоков" style="width: 20%;">
+        <input type="number" id="blocksNumberColor" placeholder="Введите кол-во цветных кругов" style="width: 20%;"><br><br>
+    </main>
+    </main>
+
+    <footer>
+        &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>

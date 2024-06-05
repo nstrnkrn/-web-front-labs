@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+</head>
+<style>
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
+<script>
+    function showStocks() {
+        const prices = [903, 901.5, 902.5, 902, 901.5, 904, 903, 901, 898.5, 902];
+        const dates = ['01-05-2024', '02-05-2024', '03-05-2024', '04-05-2024', '05-05-2024', '06-05-2024', '07-05-2024', '08-05-2024', '09-05-2024', '10-05-2024'];
+        let table = document.getElementById('stocks-table');
+        table.innerHTML = '';
+
+        // Создаем заголовки таблицы
+        let headerRow = table.insertRow();
+        let dateHeader = headerRow.insertCell(0);
+        let priceHeader = headerRow.insertCell(1);
+        let differenceHeader = headerRow.insertCell(2);
+        dateHeader.innerHTML = '<b>Дата</b>';
+        priceHeader.innerHTML = '<b>Цена акций</b>';
+        differenceHeader.innerHTML = '<b>Разница</b>';
+
+        // Создаем строки таблицы
+        let sum = 0;
+        let maxPrice = prices[0];
+        let minPrice = prices[0];
+        for (let i = 0; i < prices.length; i++) {
+            let row = table.insertRow();
+            let dateCell = row.insertCell(0);
+            let priceCell = row.insertCell(1);
+            let differenceCell = row.insertCell(2);
+            dateCell.innerText = dates[i];
+            priceCell.innerText = prices[i];
+            sum += prices[i];
+            if (prices[i] > maxPrice) {
+                maxPrice = prices[i];
+            }
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+            }
+            if (i > 0) {
+                let difference = prices[i] - prices[i - 1];
+                differenceCell.innerText = difference.toFixed(2);
+            } else {
+                differenceCell.innerText = '-'; // Если нет предыдущего значения, ставим прочерк
+            }
+        }
+
+        // Вычисляем среднее значение стоимости акции
+        let averagePrice = sum / prices.length;
+        let stockDetails = document.getElementById('stock-details');
+        stockDetails.innerHTML = `Среднее значение стоимости акции: <b>${averagePrice.toFixed(2)}</b><br>`;
+        // Выводим максимальное и минимальное значения стоимости акции
+        stockDetails.innerHTML += `Максимальное значение стоимости акции: <b>${maxPrice}</b><br>`;
+        stockDetails.innerHTML += `Минимальное значение стоимости акции: <b>${minPrice}</b><br>`;
+    }
+</script>
+<style>
+    table {
+            border-collapse: collapse;
+            width: 100%;
+    }
+    th, td {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+
+    <main>
+        <button class="button" onclick="showStocks()">Курс акций Инарктика</button><br><br>
+        <table id="stocks-table"></table><br><br>
+        <div id="stock-details"></div>
+    </main>
+
+    <footer>
+        &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>

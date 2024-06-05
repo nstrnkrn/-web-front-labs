@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Нестеренко Ирина Павловна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="apple-touch-icon"  href="../favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <style>
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #d639bf;
+            color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #d117b9;
+        }
+    .exchange-info {
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 20%;
+        }
+        th, td {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #d117b9;
+        }
+</style>
+<script>
+    function getWeather() {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+
+                const timeArray = data.hourly.time;
+                const temperatureArray = data.hourly.temperature_2m;
+
+                const weatherElement = document.getElementById('weather');
+                weatherElement.innerHTML = '';
+
+                const targetHours = [8, 12, 20];
+                targetHours.forEach(hour => {
+                    const temperature = getTemperature(hour, timeArray, temperatureArray);
+                    const temperatureString = temperature !== null ? `${temperature} °C` : 'Нет данных';
+                    weatherElement.innerHTML += `<p>Температура в ${hour}:00: <b>${temperatureString}</b></p>`;
+                });
+            })
+            .catch(error => console.error('Ошибка получения прогноза погоды:', error));
+    }
+
+    function getTemperature(hour, timeArray, temperatureArray) {
+        for (let i = 0; i < timeArray.length; i++) {
+            const time = new Date(timeArray[i]);
+            if (time.getHours() === hour) {
+                return temperatureArray[i];
+            }
+        }
+        return null; 
+    }
+</script>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+
+    <main>
+        <h1>Прогноз погоды для Новосибирска</h1>
+        <button class="button" onclick="getWeather()">Получить погоду</button>
+        <div id="weather"></div>
+    </main>
+
+    <footer>
+        &copy; Нестеренко Ирина, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
